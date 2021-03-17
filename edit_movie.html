@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/movie_list_admin.css">
+    <title>Movie Cruiser</title>
+</head>
+<body>
+    <div class="maincontainer">
+        <div class="navbar">
+            <h3>Movie Cruiser</h3> 
+            <img src="images/film.png">
+             <div class="right">
+                <a href="movie_list_admin.html"><h3>Movies</h3></a> 
+             
+            </div>
+        </div>  
+    <br>
+    <div class="tabledata">
+       <div class ="favhead">
+           <h3>Edit Movie</h3>
+       </div>
+       <div>
+           <form name="myForm" action="edit_movie_status.html" onsubmit="return myFunction()" method="post" class="editmenu">
+            <table>
+                <tr>
+                    <td>Title</td>
+                </tr>
+                <tr>
+                    <td class="title">
+                        <input id ="title" type="text" placeholder="Title" name="title">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gross ($)</td>
+                    <td>Active</td>
+                    <td>Date of Launch</td>
+                    <td>Genre</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type ="text" name="gross" placeholder="Box off col" width="50%">
+                    </td>
+                    <td>
+                        <input type="radio" id="Yes" name="Active" value="Yes">
+                        <label for="Yes">Yes</label> 
+                        <input type="radio" id="No" name="Active" value="No">
+                        <label for="No">No</label>
+                    </td>
+                    <td>
+                        <input type="date" name="dol">
+                    </td>
+                    <td>
+                        <select name="genre" id="genre">
+                            <option value="null" selected disabled hidden> Select</option>
+                            <option value="Science Fiction">Science Fiction</option>
+                            <option value="Super Hero">Super Hero</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Adventure">Adventure</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="hasteaser" name="Teaser" value="Teaser">
+                        <label for="hasteaser"> Has Teaser</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="save">
+                        <button style="text-decoration: wavy; background-color: rgb(2, 2, 87); color: rgb(253, 253, 253);" type="submit" >Save</button>
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </div>
+    </div>
+
+       <div class="footer">
+        <div class="foot">
+            <p>Copyright @ 2019</p></div>
+          </div>
+</div>
+<script>
+    function myFunction(){
+       var x =document.forms["myForm"]["title"].value;
+       var y = document.forms["myForm"]["gross"].value;
+       var z = document.forms["myForm"]["dol"].value;
+       var a = document.getElementById("genre").value;
+      
+       if(x==""){
+        //    isvalid=false;
+           alert("Title is required"); 
+           return false;
+       } 
+        if(x.length<2 || x.length>100){
+           alert("Title should have 2 to 100 characters ");
+           return false;
+       }
+       if(y==""){
+           alert("Box office is required ");
+           return false;
+       }
+     if(!(y.match(/^[0-9]+$/))){
+           alert("Box office has to be number ");
+           return false;
+       }
+     if(z==""){
+           alert("Date of launch required");
+           return false;
+       }
+        if(a==" "){
+           alert("Select one genre");
+           return false;
+       }
+      return true; 
+    }
+</script>
+
+</body>
+</html>
